@@ -4,18 +4,23 @@ import org.apache.cordova.api.CallbackContext;
 import org.apache.cordova.api.CordovaPlugin;
 import org.json.JSONArray;
 
-import android.util.Log;
-
 public class PluginExamples extends CordovaPlugin {
-	private final String TAG = "PluginExamples";
+	// Change this to false try the error callback
+	private boolean doSuccess = true;
+	
 	@Override
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
-		Log.i(TAG, "Hello there");
+		boolean returnValue = false;
+		
 		if (action.equals("mySimplePlugin")) {
-			this.webView.sendJavascript("alert('This is executed from Java :)');");
+			if (doSuccess) {
+				callbackContext.success("It works :)");
+				returnValue = true;
+			} else {
+				callbackContext.error("I vote for natural selection.");
+			}
 			
-			return true;
 		}
-		return false;
+		return returnValue;
 	}
 }
