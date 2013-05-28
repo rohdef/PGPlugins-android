@@ -1,24 +1,32 @@
 function runPlugin() {
-  
-  // Writes an error message to the div with a little image.
-  var error = function(message) {
-    var div = document.getElementById('response');
-    div.innerHTML = '<p>Error: ' + message + '</p>'
-                  + '<img src="./error.jpg">';
-  };
-  
-  // Writes a success message to the div.
-  var success = function(message) {
-    var div = document.getElementById('response');
-    div.innerHTML = '<p>Success: ' + message + '</p>';
+  // Writes a event message to the div.
+  var listener = function(message) {
+    var div = $('#response'); 
+    div.append('<p>Event: ' + message + '</p>');
   };
   
   cordova.exec(
-    success,            // Success callback
-    error,              // Error callback
+    listener,            // Success callback
+    null,              // Error callback
     "PGPlugins",        // Plugin name
-                        // named in Cordova.plist
-    "start",   // Method name
-    []              // Arguments
+                        // named in res/xml/config.xml
+    "start",            // Method name
+    []                  // Arguments
     );
 };
+
+function stopPlugin() {
+  cordova.exec(
+	null,            // Success callback
+	null,              // Error callback
+	"PGPlugins",        // Plugin name
+  	                    // named in res/xml/config.xml
+	"stop",             // Method name
+	[]                  // Arguments
+    );
+}
+
+$().ready(function() {
+	$('#runPlugin').click(runPlugin);
+	$('#stopPlugin').click(stopPlugin);
+});
