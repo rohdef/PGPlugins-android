@@ -36,9 +36,12 @@ the response div.
 
 ## Navigation
 Note! Example 5 has been merged to example 4 in the Android examples, 
-due to it being trivial compared to the original example.
+due to it being trivial compared to the original example. Using this 
+structure the need for "Advanced callbacks" as I used in example 6 is 
+probably also obsolete. If you need it ported please contact me, and 
+I'll gladly help you port it :)
 
-[Next: 6 Advanced callback](https://github.com/rohdef/PGPlugins/tree/6_Advanced_callback)
+[Next: Appendix A - Plugin structure](https://github.com/rohdef/PGPlugins/tree/Appendix_A_Plugin_structure)
 
 [List of examples](https://github.com/rohdef/PGPlugins-android/)
 
