@@ -1,29 +1,19 @@
-# Example: 2 - Simple callback
+# Example: 3 - Arguments
 
-This shows how to do a basic callback in PhoneGap.
+This adds an argument to example 2.
 
 ## Interesting files:
 
 ### src/dk/rohdef/examples/pgplugin/plugin/PluginExamples.java
-Does a callback calll based on the value of `doSuccess` and 
-calls the success method or the error method of the `CallbackContext`. 
-The `CallbackContext` simply calls the provided callback functions 
-given in the JavaScript call.
+Graps the first argument in _JSONArray args_, and hecks if the 
+argument is 'ok' and writes an error if not. 
 
-The methods for the callbacks takes a `String` at the simplest. The 
-`error` method also accepts `int` and `JSONOBject`, whereas `succes` 
-supports a few more.
-
-Use the `doSuccess` boolean to try the success and error 
-callbacks.
-
-### assets/www/pluginExample.js
-It creates two functions and send them to the 
-`cordova.exec` call, so they can be used from the native code.
+### www/pluginExample.js
+Added the argument to the call to `cordova.exec`.
 
 ## Navigation
-[Next: 3 Arguments](https://github.com/rohdef/PGPlugins-android/tree/3_Arguments)
+[Next: 4 Events](https://github.com/rohdef/PGPlugins-android/tree/4_Events)
 
 [List of examples](https://github.com/rohdef/PGPlugins-android/)
 
-[Previous: 1 Basic plugin](https://github.com/rohdef/PGPlugins-android/tree/1_Basic_plugin)
+[Previous: 2 Simple callback](https://github.com/rohdef/PGPlugins-android/tree/2_Simple_callback)
