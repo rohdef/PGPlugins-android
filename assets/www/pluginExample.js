@@ -18,7 +18,7 @@ function runPlugin() {
     error,              // Error callback
     "PGPlugins",        // Plugin name
                         // named in Cordova.plist
-    "mySimplePlugin",   // Action
-    []                  // Arguments
+    "start",   // Method name
+    []              // Arguments
     );
 };

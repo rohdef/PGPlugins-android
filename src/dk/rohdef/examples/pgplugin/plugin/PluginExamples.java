@@ -1,26 +1,41 @@
 package dk.rohdef.examples.pgplugin.plugin;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import org.apache.cordova.api.CallbackContext;
 import org.apache.cordova.api.CordovaPlugin;
 import org.json.JSONArray;
+import org.json.JSONException;
+
+import android.util.Log;
 
 public class PluginExamples extends CordovaPlugin {
-	// Change this to false try the error callback
-	private boolean doSuccess = true;
+	private CallbackContext eventCallback;
+	private Timer timer;
+	
+	public PluginExamples() {
+		timer = new Timer();
+	}
 	
 	@Override
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
 		boolean returnValue = false;
-		
-		if (action.equals("mySimplePlugin")) {
-			if (doSuccess) {
-				callbackContext.success("It works :)");
-				returnValue = true;
-			} else {
-				callbackContext.error("I vote for natural selection.");
-			}
+
+		if (action.equals("start")) {
+			timer.schedule(new TimerTask() {
+				@Override
+				public void run() {
+					Log.i("Timer", "timer called");
+				}
+			}, 5000, 5000);
 			
+			returnValue = true;
+		} else if (action.equals("stop")) {
+			timer.cancel();
+			returnValue = true;
 		}
+		
 		return returnValue;
 	}
 }
