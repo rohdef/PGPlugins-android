@@ -17,7 +17,7 @@ function runPlugin() {
     success,            // Success callback
     error,              // Error callback
     "PGPlugins",        // Plugin name
-                        // named in Cordova.plist
+                        // named in res/xml/config.xml
     "mySimplePlugin",   // Method name
     ['ok']              // Arguments
     );
