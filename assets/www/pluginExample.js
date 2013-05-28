@@ -3,7 +3,7 @@ function runPlugin() {
     null,               // Success callback
     null,               // Error callback
     "PGPlugins",        // Plugin name
-                        // named in Cordova.plist
+                        // named in res/xml/config.xml
     "mySimplePlugin",   // Method name
     []                  // Arguments
     );
